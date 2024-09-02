@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Status</title>
+    <script>
+        history.pushState(null, null, document.URL);
+        history.back();
+        window.onpopstate = () => history.forward();
+        window.alert("Once you SUBMIT, you cannot get back to this page. Click OK to continue");
+    </script>
+    <style>
+        .status-labels {
+            display: flex;
+            justify-content: space-between;
+        }
+        #file {
+            height: 20px; 
+            width: 1110px; 
+        }
+        .text-center{
+            padding-top: 100px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container my-3">
+        <div class="row">
+            <header class="site-header">
+                <h1>HushHush</h1>
+                <div class="center-text">Candidate Status</div>
+            </header>
+        </div>
+        
+        <div class="row my-3">
+            <div class="col">
+                <div class="progress">
+                    <progress id="file" value="{{progress_value}}" max="100"> Test Submitted </progress>
+                </div>
+                <div class="status-labels">
+                    <span>Email Received</span>
+                    <span>Test Submitted</span>
+                    <span>Under Evaluation</span>
+                    <span>Results</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

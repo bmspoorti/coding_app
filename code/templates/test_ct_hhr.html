@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style_ct_hhr.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+    <style>
+        #timer {
+            font-size: 24px;
+            color: red;
+        }
+        .answers{
+            height: 150px;
+            width: 1000px;
+        }
+        button{
+            margin: 20px;
+        }
+        .button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body >
+    <div class="container">
+        <header class="site-header">
+            <h1>HushHush</h1>
+            <div class="center-text">Coding Exam</div>
+        </header>
+        <div id="timer">02:00:00</div>
+
+        <form id="testForm"  method="POST">
+            {% for question in questions %}
+                <div>
+                    <label>{{ loop.index }}. {{ question[0] }}</label>
+                    <textarea class="answers" name="answer{{ loop.index }}" rows="4" cols="50"></textarea>
+                </div>
+            {% endfor %}
+            <button type="submit" class="button-link">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        // Timer script
+        function startTimer(duration, display) {
+            var timer = duration, hours, minutes, seconds;
+            var endInterval = setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(endInterval);
+                    
+                    document.getElementById("testForm").submit();
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var twoHours = 60 * 60 * 2,
+                display = document.querySelector('#timer');
+            startTimer(twoHours, display);
+        };
+
+        history.pushState(null, null, document.URL);
+        history.back();
+        window.onpopstate = () => history.forward();
+        window.alert("Once you enter the coding page you cannot navigate back to previous page. Click OK to continue");
+
+        window.onbeforeunload = function () {
+             alert("Click OK to continue"); 
+         };
+    </script>
+</body>
+</html>
+
+

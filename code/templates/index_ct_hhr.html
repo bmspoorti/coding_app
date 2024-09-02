@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Test Platform</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style_ct_hhr.css') }}">
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <header class="site-header">
+                <h1>HushHush</h1>
+                <div class="center-text">Doodle Coding Test</div>
+            </header>
+        </div>
+        <div class="row justify-content-center align-items-center" style="padding-bottom: 50px;">
+            <div class="col">
+                <h2>Coding Test Rules</h2>
+                <ul class="question-list">
+                    <li>Make sure to read each question carefully.</li>
+                    <li>Complete all questions within the given time.</li>
+                    <li>Do not use the internet to find answers.</li>
+                    <li>Click on 'Start Test' once you are ready.</li>
+                    <li>Candidate cannot navigate back to Start Page once the test is started.</li>
+                    <li>Once clicked on submit, it will be redirected to a Status Tracking page.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col d-flex justify-content-center">
+                <a href="/test/12" class="btn btn-primary">Start Test</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

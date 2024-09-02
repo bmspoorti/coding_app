@@ -1,0 +1,117 @@
+/* Base styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background: #ffffff; /* Changed from blue to black */
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #333 3px solid;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #555;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+/* Header styling */
+
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/* Link and button styling */
+a.btn, button {
+    background: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+a.btn:hover, button:hover {
+    background: #0056b3;
+}
+
+/* Form styling */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+/* Timer styling */
+#timer {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* Progress bar styling */
+.progress {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+
+.progress-bar {
+    background-color: #28a745;
+    width: 100%; /* Adjust this dynamically with JS based on progress */
+    transition: width 0.4s ease-in-out;
+}
+
+.status-labels span {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Custom adjustments */
+.question-list li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}
